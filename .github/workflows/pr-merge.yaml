@@ -1,15 +1,19 @@
 name: PR-Merge
 on: 
   pull_request_target:
-    types: closed
+    types: [opened, closed]
 
 jobs:
-  build_ubuntu:
+  merged:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: ECHO
+        run: |
+          echo ${{ if: github.event.pull_request.merged }}
+          echo $GITHUB_REF
+          echo $GITHUB_SHA
       - if: github.event.pull_request.merged == 'true'
-        name: Test
+        name: MERGED
         run: |
           echo $GITHUB_REF
           echo $GITHUB_SHA
