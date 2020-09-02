@@ -17,4 +17,9 @@ jobs:
         run: |
           echo $GITHUB_REF
           echo $GITHUB_SHA
+          filename=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)
+          touch $filename
+          git add -A
+          git commit -m "Test"
+          git push
           
