@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: ECHO
         run: |
-          echo ${{ if: github.event.pull_request.merged }}
+          echo ${{ github.event.pull_request.merged }}
           echo $GITHUB_REF
           echo $GITHUB_SHA
       - if: github.event.pull_request.merged == 'true'
