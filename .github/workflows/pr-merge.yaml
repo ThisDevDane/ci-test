@@ -7,7 +7,7 @@ jobs:
   merged:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: ECHO
         run: |
           echo ${{ github.event.pull_request.merged }}
