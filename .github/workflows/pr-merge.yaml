@@ -18,9 +18,10 @@ jobs:
         run: |
           echo $GITHUB_REF
           echo $GITHUB_SHA
-          filename=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)
-          touch $filename
+          touch test-file
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]'"
           git add -A
-          git commit -m "Test"
+          git commit -m "TEST BY BOT"
           git push
           
